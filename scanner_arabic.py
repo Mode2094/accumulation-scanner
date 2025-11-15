@@ -477,4 +477,20 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
+
+
+
+# ========= FLASK SERVER (لإظهار رابط signals) =========
+
+from flask import Flask, send_file
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Accumulation Scanner Running"
+
+@app.route("/signals")
+def signals():
+    return send_file("latest.json", mimetype="application/json")
